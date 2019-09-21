@@ -102,43 +102,42 @@
                     <div class="col-lg-5 col-md-6">
                         <div class="about-img">
                             <div class="d-flex flex-column" id="api-menu">
-                                <div class="api-items" id="api1">
-                                    GET All Cities
+                                <div class="api-items btn btn-info" id="api1">
+                                    <span class="p-1 bg-danger text-white httpmethod">GET</span>All Cities
                                 </div>
-                                <div class="api-items" id="api2">
-                                    Account Settings
+                                <div class="api-items btn btn-info" id="api2">
+                                    <span class="p-1 bg-danger text-white httpmethod">GET</span> CityById
                                 </div>
-                                <div class="api-items" id="api3">
-                                    Tasks
+                                <div class="api-items btn btn-info" id="api3">
+                                    <span class="p-1 bg-danger text-white httpmethod">POST</span> Add City
                                 </div>
-                                <div class="api-items" id="api4">
-                                    Help
+                                <div class="api-items btn btn-info" id="api4">
+                                    <span class="p-1 bg-danger text-white httpmethod">DELETE</span> Delete City
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-6">
                         <div class="about-content">
-                            
                             <div id="requestID">
                                 <div class="card text-white bg-secondary mb-3">
-                                    <div class="card-header text-center"><h2>Request</h2></div>
+                                    <div class="card-header text-center">
+                                        <h2>Request</h2>
+                                    </div>
                                     <div class="card-body">
                                         <h5 class="card-title d-inline">Endpoint: </h5><span class="d-inline" id="requestEndpointID"></span>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </div>
                                 </div>
                             </div>
-                            <h3>Odio sed id eos et laboriosam consequatur eos earum soluta.</h3>
                             
-                            
-                            <div id="requestID">
+                            <div id="responseID" class="overflow-auto">
                                 <div class="card text-white bg-secondary mb-3">
-                                    <div class="card-header text-center"><h2>Response</h2></div>
+                                    <div class="card-header text-center">
+                                        <h2>Response</h2>
+                                    </div>
                                     <div class="card-body">
-
-                                        <h5 class="card-title d-inline">Status: </h5><span class="d-inline" id="responseStatusID"></span>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h5 class="card-title d-inline">status: </h5><span class="d-inline" id="responseStatusID" style="font-weight: bolder;"></span>
+                                        <div class="card-text" id="responseDataID"></div>
                                     </div>
                                 </div>
                             </div>
@@ -362,13 +361,13 @@
         </div> -->
     </footer><!-- #footer -->
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-    <!-- Uncomment below i you want to use a preloader -->
+    <!-- Uncomment below if you want to use a preloader -->
     <!-- <div id="preloader"></div> -->
     <!-- JavaScript Libraries -->
     <script src="ui/lib/jquery/jquery.min.js"></script>
     <script src="ui/lib/jquery/jquery-migrate.min.js"></script>
     <script src="ui/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="ui/lib/axios/axios.min.js"></script>
     <script src="ui/lib/easing/easing.min.js"></script>
     <script src="ui/lib/mobile-nav/mobile-nav.js"></script>
     <script src="ui/lib/wow/wow.min.js"></script>
