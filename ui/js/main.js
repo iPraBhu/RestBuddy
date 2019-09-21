@@ -1,3 +1,5 @@
+var host="https://restbuddy.herokuapp.com/";
+
 (function ($) {
   "use strict";
 
@@ -130,3 +132,23 @@
 
 })(jQuery);
 
+
+$('#api1').click(function(){
+  var api=host+"city/allcities";
+
+  $('#requestEndpointID').html(`<a href="${api}" target="_blank">${api}</a>`);
+
+  axios.get(api)
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+
+});

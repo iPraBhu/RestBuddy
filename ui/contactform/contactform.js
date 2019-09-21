@@ -1,3 +1,7 @@
+var host="https://restbuddy.herokuapp.com";
+
+
+
 jQuery(document).ready(function($) {
   "use strict";
 
