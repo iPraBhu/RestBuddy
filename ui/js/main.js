@@ -4,16 +4,19 @@ if (location.href.includes('github')) {
 } else {
     host = "http://localhost:7777/";
 }
-
+//host = "https://restbuddy.herokuapp.com/";
 
 (function($) {
     "use strict";
 
     // Preloader (if the #preloader div exists)
     $(window).on('load', function() {
+        $('#responseLoader').hide();
+        $('#api2').click();
+
         if ($('#preloader').length) {
             $('#preloader').delay(100).fadeOut('slow', function() {
-                $(this).remove();
+                $(this).hide();
             });
         }
     });
@@ -148,10 +151,25 @@ function randomNumberFromRange(min, max) {
 }
 
 // All Cities
-$('#api1').click(function() {
-    var api = host + "city/allcities";
+$('[id^=api]').click(function() {
+    $('#responseLoader').show();
 
-    $('#requestEndpointID').html(`<a href="${api}" target="_blank">${api}</a>`);
+})
+
+function preCall() {
+    $('#requestEndpointID').html('');
+    $('#responseDataID').html('');
+    $('#responseStatusID').html('');
+}
+
+$('#api1').click(function() {
+    preCall();
+    var startTime = Date.now();
+    var api = host + "city/allcities";
+    var requestBody = "";
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">GET</span>`;
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
 
     axios.get(api)
         .then(function(response) {
@@ -166,6 +184,8 @@ $('#api1').click(function() {
         })
         .finally(function() {
             // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
         });
 
 });
@@ -173,10 +193,15 @@ $('#api1').click(function() {
 
 // City by ID
 $('#api2').click(function() {
+    preCall();
+    var startTime = Date.now();
     var randomNum = randomNumberFromRange(1, 1300);
     var api = host + "city/" + randomNum;
+    var requestBody = "";
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">GET</span>`;
 
-    $('#requestEndpointID').html(`<a href="${api}" target="_blank">${api}</a>`);
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
 
     axios.get(api)
         .then(function(response) {
@@ -191,24 +216,38 @@ $('#api2').click(function() {
         })
         .finally(function() {
             // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
         });
+
 
 });
 
 
 // Add new city
 $('#api3').click(function() {
+    preCall();
+    var startTime = Date.now();
     //var randomNum = randomNumberFromRange(1, 1300);
     var api = host + "city/addcity";
+    var reqBody = {
+        cityname: "New Post City",
+        statecode: "NC",
+        statename: "New Post state",
+        latitude: "00.0000",
+        longitude: "-00000",
+        population: 18880,
+        density: 187870,
+        zipcode: "00000 11111"
 
-    $('#requestEndpointID').html(`<a href="${api}" target="_blank">${api}</a>`);
+    };
 
-    axios.post(api, {
-            cityname: "new city",
-            statecode: "NC",
-            statename: "new state",
-            zipcode: "04546"
-        })
+    var requestBody = `<h5 class="d-inline">Request Body: </h5><pre style="color:#1bb1dc">${JSON.stringify(reqBody,null,2)}</pre>`;
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">POST</span>`;
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
+
+    axios.post(api, reqBody)
         .then(function(response) {
             // handle success
             $('#responseStatusID').html(response.status);
@@ -221,17 +260,25 @@ $('#api3').click(function() {
         })
         .finally(function() {
             // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
         });
 
 });
 
 // Delete a city
 $('#api4').click(function() {
+    preCall();
+    var startTime = Date.now();
     var randomNum = randomNumberFromRange(1, 1300);
     var api = host + "city/" + randomNum;
 
 
-    $('#requestEndpointID').html(`<a href="${api}" target="_blank">${api}</a>`);
+    var requestBody = "";
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">DELETE</span>`;
+
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
 
     axios.delete(api)
         .then(function(response) {
@@ -246,6 +293,184 @@ $('#api4').click(function() {
         })
         .finally(function() {
             // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
         });
+
+
+});
+
+// Update City Details (All Fields)
+$('#api5').click(function() {
+    preCall();
+    var startTime = Date.now();
+    //var randomNum = randomNumberFromRange(1, 1300);
+    var api = host + "city/14";
+    var reqBody = {
+        cityname: "New Put City",
+        statecode: "NC",
+        statename: "New state",
+        latitude: "00.0000",
+        longitude: "-00000",
+        population: 0,
+        density: 0,
+        zipcode: "00000 11111"
+    };
+    var requestBody = `<h5 class="d-inline">Request Body: </h5><pre style="color:#1bb1dc">${JSON.stringify(reqBody,null,2)}</pre>`;
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">PUT</span>`;
+
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
+
+    axios.put(api, reqBody)
+        .then(function(response) {
+            // handle success
+            $('#responseStatusID').html(response.status);
+            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            console.log(response);
+        })
+        .catch(function(error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function() {
+            // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
+        });
+
+});
+
+// Update City Details (Some Fields)
+$('#api6').click(function() {
+    preCall();
+    var startTime = Date.now();
+    //var randomNum = randomNumberFromRange(1, 1300);
+    var api = host + "city/15";
+    var reqBody = {
+        cityname: "New Patch City"
+    };
+    var requestBody = `<h5 class="d-inline">Request Body: </h5><pre style="color:#1bb1dc">${JSON.stringify(reqBody,null,2)}</pre>`;
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">PATCH</span>`;
+
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
+
+    axios.patch(api, reqBody)
+        .then(function(response) {
+            // handle success
+            $('#responseStatusID').html(response.status);
+            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            console.log(response);
+        })
+        .catch(function(error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function() {
+            // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
+        });
+
+});
+
+
+// City by CityName
+$('#api7').click(function() {
+    preCall();
+    var startTime = Date.now();
+    var api = host + "city/cityname/Houston";
+
+    var requestBody = "";
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">GET</span>`;
+
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
+
+    axios.get(api)
+        .then(function(response) {
+            // handle success
+            $('#responseStatusID').html(response.status);
+            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            console.log(response);
+        })
+        .catch(function(error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function() {
+            // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
+        });
+
+
+});
+
+
+
+// City by Population Greater Than
+$('#api8').click(function() {
+    preCall();
+    var startTime = Date.now();
+    var api = host + "city/population/17687";
+
+    var requestBody = "";
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">GET</span>`;
+
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
+
+    axios.get(api)
+        .then(function(response) {
+            // handle success
+            $('#responseStatusID').html(response.status);
+            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            console.log(response);
+        })
+        .catch(function(error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function() {
+            // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
+        });
+
+
+});
+
+
+// City by Population Greater Than
+$('#api9').click(function() {
+    preCall();
+    var startTime = Date.now();
+    var api = host + "city/zipcode/85009";
+
+    var requestBody = "";
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">GET</span>`;
+
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
+
+    axios.get(api)
+        .then(function(response) {
+            // handle success
+            $('#responseStatusID').html(response.status);
+            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            console.log(response);
+        })
+        .catch(function(error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function() {
+            // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
+        });
+
 
 });

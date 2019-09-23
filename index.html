@@ -32,10 +32,10 @@
         <div id="topbar">
             <div class="container">
                 <div class="social-links">
-                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="https://twitter.com/guide_dev" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/ADevGuide" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <!-- <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> -->
+                    <a href="#" class="instagram"><i class="fa fa-instagram" target="_blank"></i></a>
                 </div>
             </div>
         </div>
@@ -48,9 +48,9 @@
             <nav class="main-nav float-right d-none d-lg-block">
                 <ul>
                     <li class="active"><a href="#intro">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#api">API</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+                    <!-- <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#team">Team</a></li>
                     <li class="drop-down"><a href="">Drop Down</a>
                         <ul>
@@ -68,7 +68,7 @@
                             <li><a href="#">Drop Down 4</a></li>
                             <li><a href="#">Drop Down 5</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li><a href="#footer">Contact Us</a></li>
                 </ul>
             </nav><!-- .main-nav -->
@@ -81,9 +81,9 @@
         <div class="container d-flex h-100">
             <div class="row justify-content-center align-self-center">
                 <div class="col-md-6 intro-info order-md-first order-last">
-                    <h2>Persistable REST API<br> Endpoints For <span>EVERYONE!</span></h2>
+                    <h2>Persistable REST API<br> Endpoints Completely<span> FREE!</span></h2>
                     <div>
-                        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                        <a href="#api" class="btn-get-started scrollto">Get Started</a>
                     </div>
                 </div>
                 <div class="col-md-6 intro-img order-md-last order-first">
@@ -96,23 +96,38 @@
         <!--==========================
       About Us Section
     ============================-->
-        <section id="about">
+        <section id="api">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 col-md-6">
                         <div class="about-img">
                             <div class="d-flex flex-column" id="api-menu">
                                 <div class="api-items btn btn-info" id="api1">
-                                    <span class="p-1 bg-danger text-white httpmethod">GET</span>All Cities
+                                    <span class="p-1 bg-danger text-white httpmethod">GET</span>Find All Cities
                                 </div>
                                 <div class="api-items btn btn-info" id="api2">
-                                    <span class="p-1 bg-danger text-white httpmethod">GET</span> CityById
+                                    <span class="p-1 bg-danger text-white httpmethod">GET</span> Finy City By Id
                                 </div>
                                 <div class="api-items btn btn-info" id="api3">
-                                    <span class="p-1 bg-danger text-white httpmethod">POST</span> Add City
+                                    <span class="p-1 bg-success text-white httpmethod">POST</span> Add City
                                 </div>
                                 <div class="api-items btn btn-info" id="api4">
-                                    <span class="p-1 bg-danger text-white httpmethod">DELETE</span> Delete City
+                                    <span class="p-1 bg-warning text-white httpmethod">DELETE</span> Delete City
+                                </div>
+                                <div class="api-items btn btn-info" id="api5">
+                                    <span class="p-1 bg-success text-white httpmethod">PUT</span> Update City Details(All Fields)
+                                </div>
+                                <div class="api-items btn btn-info" id="api6">
+                                    <span class="p-1 bg-warning text-white httpmethod">PATCH</span> Update City Details(Some Fields)
+                                </div>
+                                <div class="api-items btn btn-info" id="api7">
+                                    <span class="p-1 bg-danger text-white httpmethod">GET</span> Find City By Cityname
+                                </div>
+                                <div class="api-items btn btn-info" id="api8">
+                                    <span class="p-1 bg-danger text-white httpmethod">GET</span> Find City Greater than
+                                </div>
+                                <div class="api-items btn btn-info" id="api9">
+                                    <span class="p-1 bg-danger text-white httpmethod">GET</span> Find City with Zip Code
                                 </div>
                             </div>
                         </div>
@@ -125,17 +140,21 @@
                                         <h2>Request</h2>
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title d-inline">Endpoint: </h5><span class="d-inline" id="requestEndpointID"></span>
+                                        <span class="d-inline" id="requestEndpointID"></span>
                                     </div>
                                 </div>
                             </div>
-                            
                             <div id="responseID" class="overflow-auto">
                                 <div class="card text-white bg-secondary mb-3">
                                     <div class="card-header text-center">
                                         <h2>Response</h2>
                                     </div>
                                     <div class="card-body">
+                                        <div id='responseLoader' class="lds-facebook">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
                                         <h5 class="card-title d-inline">status: </h5><span class="d-inline" id="responseStatusID" style="font-weight: bolder;"></span>
                                         <div class="card-text" id="responseDataID"></div>
                                     </div>
@@ -145,7 +164,7 @@
                     </div>
                 </div>
             </div>
-        </section><!-- #about -->
+        </section><!-- #api -->
         <!--==========================
       Services Section
     ============================-->
@@ -153,31 +172,31 @@
             <div class="container">
                 <header class="section-header">
                     <h3>Services</h3>
-                    <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+                    <p>RestBuddy is a completely Free CROS Enabled Persistable REST API server. Some of our services are mentioned below.</p>
                 </header>
                 <div class="row">
                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
                         <div class="box">
-                            <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
-                            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                            <div class="icon" style="background: #e1eeff;"><i class="ion-ios-world-outline" style="color: #ff689b;"></i></div>
+                            <h4 class="title"><a href="">Completely Ad-Free</a></h4>
+                            <p class="description">Description comming soon</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
                         <div class="box">
                             <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
-                            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                            <h4 class="title"><a href="">CROS Enabled</a></h4>
+                            <p class="description">Description comming soon</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                         <div class="box">
                             <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
-                            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                            <h4 class="title"><a href="">Persistable Endpoints</a></h4>
+                            <p class="description">Description comming soon</p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                    <!-- <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                         <div class="box">
                             <div class="icon" style="background: #eafde7;"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>
                             <h4 class="title"><a href="">Magni Dolores</a></h4>
@@ -197,7 +216,7 @@
                             <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
                             <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section><!-- #services -->
@@ -212,14 +231,14 @@
                 </header>
                 <ul id="faq-list" class="wow fadeInUp">
                     <li>
-                        <a data-toggle="collapse" class="collapsed" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="ion-android-remove"></i></a>
+                        <a data-toggle="collapse" class="collapsed" href="#faq1">What is the purpose of RestBuddy? <i class="ion-android-remove"></i></a>
                         <div id="faq1" class="collapse" data-parent="#faq-list">
                             <p>
-                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                                We provide REST API Endpoint with dummy data for anyone test their API Client.
                             </p>
                         </div>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a data-toggle="collapse" href="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="ion-android-remove"></i></a>
                         <div id="faq2" class="collapse" data-parent="#faq-list">
                             <p>
@@ -258,7 +277,7 @@
                                 Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
                             </p>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </section><!-- #faq -->
@@ -275,11 +294,11 @@
                             <div class="col-sm-6">
                                 <div class="footer-info">
                                     <h3>REST Buddy</h3>
-                                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+                                    <p>RestBuddy is a completely Free CROS Enabled Persistable REST API server.Will add more description soon.</p>
                                 </div>
                                 <div class="footer-newsletter">
                                     <h4>Our Newsletter</h4>
-                                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem.</p>
+                                    <p>Keep Up to Date with Future Development </p>
                                     <form action="" method="post">
                                         <input type="email" name="email"><input type="submit" value="Subscribe">
                                     </form>
@@ -289,9 +308,9 @@
                                 <div class="footer-links">
                                     <h4>Useful Links</h4>
                                     <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About us</a></li>
-                                        <li><a href="#">Services</a></li>
+                                        <li><a href="#intro">Home</a></li>
+                                        <li><a href="#api">API</a></li>
+                                        <li><a href="#services">Services</a></li>
                                         <li><a href="#">Terms of service</a></li>
                                         <li><a href="#">Privacy policy</a></li>
                                     </ul>
@@ -299,18 +318,18 @@
                                 <div class="footer-links">
                                     <h4>Contact Us</h4>
                                     <p>
-                                        A108 Adam Street <br>
+                                        <!-- A108 Adam Street <br>
                                         New York, NY 535022<br>
                                         United States <br>
-                                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                                        <strong>Email:</strong> info@example.com<br>
+                                        <strong>Phone:</strong> +1 5589 55488 55<br> -->
+                                        <strong>Email:</strong> prabhu.sites@gmail.com<br>
                                     </p>
                                 </div>
                                 <div class="social-links">
-                                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://twitter.com/guide_dev" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://www.facebook.com/ADevGuide" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="fa fa-instagram" target="_blank"></i></a>
+                                    <!-- <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a> -->
                                 </div>
                             </div>
                         </div>
@@ -318,7 +337,7 @@
                     <div class="col-lg-6">
                         <div class="form">
                             <h4>Send us a message</h4>
-                            <p>Eos ipsa est voluptates. Nostrum nam libero ipsa vero. Debitis quasi sit eaque numquam similique commodi harum aut temporibus.</p>
+                            <p>Do you have any suggestion or found any bug? Please contact us using form below.</p>
                             <form action="" method="post" role="form" class="contactForm">
                                 <div class="form-group">
                                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -362,7 +381,7 @@
     </footer><!-- #footer -->
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
     <!-- Uncomment below if you want to use a preloader -->
-    <!-- <div id="preloader"></div> -->
+    <div id="preloader"></div>
     <!-- JavaScript Libraries -->
     <script src="ui/lib/jquery/jquery.min.js"></script>
     <script src="ui/lib/jquery/jquery-migrate.min.js"></script>

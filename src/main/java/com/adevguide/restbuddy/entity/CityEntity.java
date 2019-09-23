@@ -15,7 +15,7 @@ import lombok.Data;
 
 @Entity(name = "CITY")
 @Data
-@TableGenerator(name = "citySeq", initialValue = 10000, allocationSize = 1)
+@TableGenerator(name = "citySeq", initialValue = 2000, allocationSize = 1)
 public class CityEntity {
 
     private @Id

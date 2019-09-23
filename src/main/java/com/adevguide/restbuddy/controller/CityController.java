@@ -78,8 +78,31 @@ public class CityController {
     CityEntity city, @PathVariable
     Long id) {
         return cityRepository.findById(id).map(updatedCity -> {
-            updatedCity.setDensity(city.getDensity());
-            updatedCity.setPopulation(city.getPopulation());
+            if(null!=city.getDensity()) {
+                updatedCity.setDensity(city.getDensity());
+            }
+            if(null!=city.getPopulation()) {
+                updatedCity.setPopulation(city.getPopulation());
+            }
+            if(null!=city.getCityname()) {
+                updatedCity.setCityname(city.getCityname());
+            }
+            if(null!=city.getLatitude()) {
+                updatedCity.setLatitude(city.getLatitude());
+            }
+            if(null!=city.getLongitude()) {
+                updatedCity.setLongitude(city.getLongitude());
+            }
+            if(null!=city.getStatecode()) {
+                updatedCity.setStatecode(city.getStatecode());
+            }
+            if(null!=city.getStatename()) {
+                updatedCity.setStatename(city.getStatename());
+            }
+            if(null!=city.getZipcode()) {
+                updatedCity.setZipcode(city.getZipcode());
+            }
+            
             return new ResponseEntity<>(cityRepository.save(updatedCity), HttpStatus.ACCEPTED);
         }).orElseGet(() -> {
             city.setId(id);
