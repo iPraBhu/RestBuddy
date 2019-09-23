@@ -11,11 +11,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 @EnableWebMvc
-public class RestBuddyConfiguration implements WebMvcConfigurer{
+public class RestBuddyConfiguration implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-        .allowedMethods("*");
+        registry.addMapping("/**").allowedMethods("*");
     }
 }
-
