@@ -4,7 +4,7 @@ if (location.href.includes('github')) {
 } else {
     host = "http://localhost:7777/";
 }
-//host = "https://restbuddy.herokuapp.com/";
+host = "https://restbuddy.herokuapp.com/";
 
 (function($) {
     "use strict";
@@ -167,7 +167,7 @@ $('#api1').click(function() {
     var startTime = Date.now();
     var api = host + "city/allcities";
     var requestBody = "";
-    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">GET</span>`;
+    var method = `<h5 class="d-inline">Method: </h5> GET`;
 
     $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
 
@@ -175,7 +175,7 @@ $('#api1').click(function() {
         .then(function(response) {
             // handle success
             $('#responseStatusID').html(response.status);
-            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
             console.log(response);
         })
         .catch(function(error) {
@@ -198,7 +198,7 @@ $('#api2').click(function() {
     var randomNum = randomNumberFromRange(1, 1300);
     var api = host + "city/" + randomNum;
     var requestBody = "";
-    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">GET</span>`;
+    var method = `<h5 class="d-inline">Method: </h5> GET`;
 
 
     $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
@@ -207,7 +207,7 @@ $('#api2').click(function() {
         .then(function(response) {
             // handle success
             $('#responseStatusID').html(response.status);
-            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
             console.log(response);
         })
         .catch(function(error) {
@@ -251,7 +251,7 @@ $('#api3').click(function() {
         .then(function(response) {
             // handle success
             $('#responseStatusID').html(response.status);
-            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
             console.log(response);
         })
         .catch(function(error) {
@@ -326,7 +326,7 @@ $('#api5').click(function() {
         .then(function(response) {
             // handle success
             $('#responseStatusID').html(response.status);
-            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
             console.log(response);
         })
         .catch(function(error) {
@@ -360,7 +360,7 @@ $('#api6').click(function() {
         .then(function(response) {
             // handle success
             $('#responseStatusID').html(response.status);
-            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
             console.log(response);
         })
         .catch(function(error) {
@@ -383,7 +383,7 @@ $('#api7').click(function() {
     var api = host + "city/cityname/Houston";
 
     var requestBody = "";
-    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">GET</span>`;
+    var method = `<h5 class="d-inline">Method: </h5> GET`;
 
 
     $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
@@ -392,7 +392,7 @@ $('#api7').click(function() {
         .then(function(response) {
             // handle success
             $('#responseStatusID').html(response.status);
-            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
             console.log(response);
         })
         .catch(function(error) {
@@ -417,7 +417,7 @@ $('#api8').click(function() {
     var api = host + "city/population/17687";
 
     var requestBody = "";
-    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">GET</span>`;
+    var method = `<h5 class="d-inline">Method: </h5> GET`;
 
 
     $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
@@ -426,7 +426,7 @@ $('#api8').click(function() {
         .then(function(response) {
             // handle success
             $('#responseStatusID').html(response.status);
-            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
             console.log(response);
         })
         .catch(function(error) {
@@ -450,7 +450,7 @@ $('#api9').click(function() {
     var api = host + "city/zipcode/85009";
 
     var requestBody = "";
-    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">GET</span>`;
+    var method = `<h5 class="d-inline">Method: </h5> GET`;
 
 
     $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
@@ -459,7 +459,7 @@ $('#api9').click(function() {
         .then(function(response) {
             // handle success
             $('#responseStatusID').html(response.status);
-            $('#responseDataID').html('<pre>' + JSON.stringify(response.data, null, 2) + '</pre>');
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
             console.log(response);
         })
         .catch(function(error) {

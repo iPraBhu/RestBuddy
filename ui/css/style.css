@@ -499,60 +499,60 @@ h6 {
 /* About Us Section
 --------------------------------*/
 
-#api {
+#example-api {
     padding: 25px 0;
 }
 
-/*#api .about-content {
+/*#example-api .about-content {
     padding-top: 40px;
 }*/
 
-#api .about-content h2 {
+#example-api .about-content h2 {
     /*color: #413e66;*/
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
 }
 
-#api .about-content h3 {
+#example-api .about-content h3 {
     color: #696592;
     font-weight: 400;
     font-size: 22px;
     font-style: italic;
 }
 
-#api .about-content ul {
+#example-api .about-content ul {
     list-style: none;
     padding: 0;
 }
 
-#api .about-content ul li {
+#example-api .about-content ul li {
     padding-bottom: 10px;
 }
 
-#api .about-content ul li i {
+#example-api .about-content ul li i {
     font-size: 20px;
     padding-right: 4px;
     color: #1bb1dc;
 }
 
-#api .about-img {
+#example-api .about-img {
     position: relative;
     margin: 30px;
 }
 
-#api .about-img img {
+#example-api .about-img img {
     width: 100%;
     border: 8px solid #fff;
     transition: .5s;
 }
 
-#api .about-img img:hover {
+#example-api .about-img img:hover {
     width: 100%;
     -webkit-transform: scale(1.03);
     transform: scale(1.03);
 }
 
-#api .about-img::before {
+#example-api .about-img::before {
     position: absolute;
     left: -31px;
     top: -30px;
@@ -564,7 +564,7 @@ h6 {
     transition: .5s;
 }
 
-#api .about-img::after {
+#example-api .about-img::after {
     position: absolute;
     right: -31px;
     bottom: -30px;
@@ -1581,7 +1581,7 @@ h6 {
   position: absolute;
   left: 6px;
   width: 13px;
-  background: #fff;
+  background: #28a745!important;
   animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 .lds-facebook div:nth-child(1) {
@@ -1627,13 +1627,13 @@ h6 {
 
 #responseID {
     height: 70vh;
-    color: #ffffff !important;
+    /*color: #ffffff !important;*/
 }
 
-#responseStatusID,
+/*#responseStatusID,
 #responseDataID pre {
     color: #ffffff;
-}
+}*/
 
 .httpmethod {
     float: left;
