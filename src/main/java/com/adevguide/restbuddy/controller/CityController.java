@@ -18,6 +18,10 @@ import com.adevguide.restbuddy.dao.CityJpaRepository;
 import com.adevguide.restbuddy.entity.CityEntity;
 import com.adevguide.restbuddy.exception.CityNotFoundException;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -26,7 +30,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @RestController
-@RequestMapping("city")
+@RequestMapping("/city")
+@Api(value = "CityApis")
 public class CityController {
 
     private CityJpaRepository cityRepository;
@@ -36,6 +41,9 @@ public class CityController {
     }
 
     @GetMapping("/allcities")
+    @ApiOperation(value = "get all available cities in JSON array.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved list")})
     public ResponseEntity<List<CityEntity>> getAllCities() {
         List<CityEntity> cities = cityRepository.findAll();
         if (!cities.isEmpty()) {
@@ -53,6 +61,7 @@ public class CityController {
     }
 
     @PostMapping("/addcity")
+    @ApiOperation(value = "Add new city in the database.")
     public ResponseEntity<CityEntity> addNewCity(@RequestBody
     CityEntity city) {
         log.info("Adding New City::" + city);
@@ -60,6 +69,7 @@ public class CityController {
     }
 
     @DeleteMapping("/{id}")
+    @ApiOperation(value = "Delete particular city by ID.")
     public ResponseEntity<String> deleteCity(@PathVariable
     Long id) {
         try {
@@ -74,6 +84,7 @@ public class CityController {
     }
 
     @PatchMapping("/{id}")
+    @ApiOperation(value = "Update particular city's some information fields by ID")
     public ResponseEntity<CityEntity> updateCity(@RequestBody
     CityEntity city, @PathVariable
     Long id) {
@@ -111,6 +122,7 @@ public class CityController {
     }
 
     @PutMapping("/{id}")
+    @ApiOperation(value = "Update particular city's complete information by ID")
     public ResponseEntity<CityEntity> updateCompleteCity(@RequestBody
     CityEntity city, @PathVariable
     Long id) {
@@ -119,6 +131,7 @@ public class CityController {
     }
 
     @GetMapping("/cityname/{cityname}")
+    @ApiOperation(value = "Get a particular city by cityname")
     public ResponseEntity<List<CityEntity>> getCityByCityname(@PathVariable
     String cityname) {
         List<CityEntity> cities = cityRepository.findByCityname(cityname);
@@ -131,6 +144,7 @@ public class CityController {
     }
 
     @GetMapping("/population/{population}")
+    @ApiOperation(value = "Get list of cities whose population is greater than passed value.")
     public ResponseEntity<List<CityEntity>> findByPopulationGreaterThan(@PathVariable
     Long population) {
         List<CityEntity> cities = cityRepository.findByPopulationGreaterThan(population);;
@@ -142,6 +156,7 @@ public class CityController {
     }
 
     @GetMapping("/zipcode/{zipcode}")
+    @ApiOperation(value = "Get city/cities whose zipcode consists passed value.")
     public ResponseEntity<List<CityEntity>> findByZipcodeLike(@PathVariable
     String zipcode) {
         List<CityEntity> cities = cityRepository.findByZipcodeLike("%" + zipcode + "%");;
