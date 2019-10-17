@@ -3,6 +3,7 @@ package com.adevguide.restbuddy.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +42,7 @@ public class CityController {
     }
 
     @GetMapping("/allcities")
-    @ApiOperation(value = "get all available cities in JSON array.")
+    @ApiOperation(value = "get all available cities in JSON array.",produces = "application/json")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully retrieved list")})
     public ResponseEntity<List<CityEntity>> getAllCities() {

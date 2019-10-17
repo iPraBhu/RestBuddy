@@ -29,6 +29,7 @@ public class RestBuddyConfiguration extends WebMvcConfigurationSupport {
         registry.addMapping("/**").allowedMethods("*");
     }
 
+    /* Swagger Config starts */
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
@@ -43,7 +44,6 @@ public class RestBuddyConfiguration extends WebMvcConfigurationSupport {
                 .description("RestBuddy Documentation for all exposed endpoints")
                 .version("1.0.0")
                 .license("Apache License Version 2.0")
-                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
                 .contact(new Contact("PraBhu", "https://www.adevguide.com/contact-us", "prabhu.sites@gmail.com"))
                 .build();
     }
@@ -55,4 +55,8 @@ public class RestBuddyConfiguration extends WebMvcConfigurationSupport {
                 .build().apiInfo(metaData());
 
     }
+    
+    /* Swagger config ends */
+    
+    
 }
