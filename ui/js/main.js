@@ -474,3 +474,113 @@ $('#api9').click(function() {
 
 
 });
+
+
+
+//Successful Authentication
+$('#api10').click(function() {
+    preCall();
+    var startTime = Date.now();
+    //var randomNum = randomNumberFromRange(1, 1300);
+    var api = host + "city/login";
+    var reqBody = {
+        email: "prabhu.sites@gmail.com",
+        password: "123"
+    };
+
+    var requestBody = `<h5 class="d-inline">Request Body: </h5><pre style="color:#1bb1dc">${JSON.stringify(reqBody,null,2)}</pre>`;
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">POST</span>`;
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
+
+    axios.post(api, reqBody)
+        .then(function(response) {
+            // handle success
+            $('#responseStatusID').html(response.status);
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
+            console.log(response);
+        })
+        .catch(function(error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function() {
+            // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
+        });
+
+});
+
+
+
+//unsuccessful Authorization
+$('#api11').click(function() {
+    preCall();
+    var startTime = Date.now();
+    //var randomNum = randomNumberFromRange(1, 1300);
+    var api = host + "city/login";
+    var reqBody = {
+        email: "prabhu@gmail.com",
+        password: "123"
+    };
+
+    var requestBody = `<h5 class="d-inline">Request Body: </h5><pre style="color:#1bb1dc">${JSON.stringify(reqBody,null,2)}</pre>`;
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">POST</span>`;
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
+
+    axios.post(api, reqBody)
+        .then(function(response) {
+            // handle success
+            $('#responseStatusID').html(response.status);
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
+            console.log(response);
+        })
+        .catch(function(error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function() {
+            // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
+        });
+
+});
+
+
+//unsuccessful Authentication
+$('#api11').click(function() {
+    preCall();
+    var startTime = Date.now();
+    //var randomNum = randomNumberFromRange(1, 1300);
+    var api = host + "city/login";
+    var reqBody = {
+        email: "prabhu.random@gmail.com",
+        password: "12jh3"
+    };
+
+    var requestBody = `<h5 class="d-inline">Request Body: </h5><pre style="color:#1bb1dc">${JSON.stringify(reqBody,null,2)}</pre>`;
+    var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">POST</span>`;
+
+    $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
+
+    axios.post(api, reqBody)
+        .then(function(response) {
+            // handle success
+            $('#responseStatusID').html(response.status);
+            $('#responseDataID').html('<pre><code>' + JSON.stringify(response.data, null, 2) + '</code></pre>');
+            console.log(response);
+        })
+        .catch(function(error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function() {
+            // always executed
+            console.log('Time Taken (milisecs) by API to complete: ' + (Date.now() - startTime));
+            $('#responseLoader').hide();
+        });
+
+});
