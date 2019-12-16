@@ -1,9 +1,9 @@
 package com.adevguide.restbuddy.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -170,15 +169,16 @@ public class CityController {
 
     @PostMapping("/login")
     @ApiOperation(value = "Get city/cities whose zipcode consists passed value.")
-    public ResponseEntity<String> doAuthentication(@RequestAttribute
-    String email, @RequestAttribute
-    String password) {
-        if (email.equals("prabhu.sites@gmail") && password.equals("123")) {
+    public ResponseEntity<String> doAuthentication(@RequestBody Map<String, Object> payload) {
+        String email=(String) payload.get("email");
+        String password=(String) payload.get("password");
+        
+        if (email.equals("prabhu.sites@gmail.com") && password.equals("123")) {
             return new ResponseEntity<>("Login Successful", HttpStatus.OK);
-        } else if (email.equals("prabhu@gmail") && password.equals("123")) {
-            return new ResponseEntity<>("Login Successful", HttpStatus.FORBIDDEN);
+        } else if (email.equals("prabhu@gmail.com") && password.equals("123")) {
+            return new ResponseEntity<>("Login Successful, Role Unauthorized", HttpStatus.FORBIDDEN);
         } else {
-            return new ResponseEntity<>("Login Unsuccessful", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>("Login Unsuccessful, Please check your credentials", HttpStatus.UNAUTHORIZED);
         }
     }
 
