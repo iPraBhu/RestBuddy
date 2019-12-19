@@ -494,19 +494,23 @@ $('#api10').click(function () {
     //var randomNum = randomNumberFromRange(1, 1300);
     var api = host + "city/login";
 
-    var reqBody = {
-        email: 'prabhu.sites@gmail.com',
-        password: '123'
+    var header = {
+        "email": 'prabhu.sites@gmail.com',
+        "password": '123'
     };
 
+    let axiosConfig = {
+        headers: header
+    }
 
-    var requestBody = `<h5 class="d-inline">Request Body: </h5><pre style="color:#1bb1dc">${JSON.stringify(reqBody,null,2)}</pre>`;
+
+    var requestBody = `<h5 class="d-inline">headers: </h5><pre style="color:#1bb1dc">${JSON.stringify(header,null,2)}</pre>`;
 
     var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">POST</span>`;
 
     $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
 
-    axios.post(api, reqBody)
+    axios.post(api, null, axiosConfig)
         .then(function (response) {
             // handle success
             $('#responseStatusID').html(response.status);
@@ -533,17 +537,21 @@ $('#api11').click(function () {
     var startTime = Date.now();
     //var randomNum = randomNumberFromRange(1, 1300);
     var api = host + "city/login";
-    var reqBody = {
-        email: 'prabhu@gmail.com',
-        password: '123'
+    var header = {
+        'email': 'prabhu@gmail.com',
+        'password': '123'
     };
 
-    var requestBody = `<h5 class="d-inline">Request Body: </h5><pre style="color:#1bb1dc">${JSON.stringify(reqBody,null,2)}</pre>`;
+    let axiosConfig = {
+        headers: header
+    }
+
+    var requestBody = `<h5 class="d-inline">headers: </h5><pre style="color:#1bb1dc">${JSON.stringify(header,null,2)}</pre>`;
     var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">POST</span>`;
 
     $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
 
-    axios.post(api, reqBody)
+    axios.post(api, null, axiosConfig)
         .then(function (response) {
             // handle success
             console.log(response);
@@ -570,16 +578,19 @@ $('#api12').click(function () {
     var startTime = Date.now();
     //var randomNum = randomNumberFromRange(1, 1300);
     var api = host + "city/login";
-    var reqBody = {
-        email: "prabhu.random@gmail.com",
-        password: "12jh3"
+    var header = {
+        'email': "prabhu.random@gmail.com",
+        'password': "12jh3"
     };
+    let axiosConfig = {
+        headers: header
+    }
 
-    var requestBody = `<h5 class="d-inline">Request Body: </h5><pre style="color:#1bb1dc">${JSON.stringify(reqBody,null,2)}</pre>`;
+    var requestBody = `<h5 class="d-inline">headers: </h5><pre style="color:#1bb1dc">${JSON.stringify(header,null,2)}</pre>`;
     var method = `<h5 class="d-inline">Method: </h5> <span style="color:#1bb1dc">POST</span>`;
     $('#requestEndpointID').html(`<h5 class="d-inline">Endpoint: </h5><a href="${api}" target="_blank">${api}</a><br>${method}<br>${requestBody}`);
 
-    axios.post(api, reqBody)
+    axios.post(api, null, axiosConfig)
         .then(function (response) {
             // handle success
             console.log(response);

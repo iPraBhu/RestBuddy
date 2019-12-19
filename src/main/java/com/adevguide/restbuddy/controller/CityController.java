@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -169,16 +170,16 @@ public class CityController {
 
     @PostMapping("/login")
     @ApiOperation(value = "Get city/cities whose zipcode consists passed value.")
-    public ResponseEntity<String> doAuthentication(@RequestBody Map<String, Object> payload) {
-        String email=(String) payload.get("email");
-        String password=(String) payload.get("password");
-        
+    public ResponseEntity<String> doAuthentication(@RequestHeader("email")
+    String email, @RequestHeader("password")
+    String password) {
+
         if (email.equals("prabhu.sites@gmail.com") && password.equals("123")) {
             return new ResponseEntity<>("Login Successful", HttpStatus.OK);
         } else if (email.equals("prabhu@gmail.com") && password.equals("123")) {
-            return new ResponseEntity<>("Login Successful, Role Unauthorized", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Login Successful, Role Unauthorized.", HttpStatus.FORBIDDEN);
         } else {
-            return new ResponseEntity<>("Login Unsuccessful, Please check your credentials", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>("Login Unsuccessful, Please check your credentials.", HttpStatus.UNAUTHORIZED);
         }
     }
 
