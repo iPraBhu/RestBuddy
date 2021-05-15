@@ -1,5 +1,5 @@
 var host;
-if (location.href.includes('github')) {
+if (location.href.includes('restbuddy')) {
     host = "https://restbuddy.herokuapp.com/";
 } else {
     host = "http://localhost:7777/";
