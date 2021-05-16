@@ -56,7 +56,6 @@ public class RestBuddyConfiguration extends WebMvcConfigurationSupport {
 
     }
     
-    /* Swagger config ends */
     
     
 }

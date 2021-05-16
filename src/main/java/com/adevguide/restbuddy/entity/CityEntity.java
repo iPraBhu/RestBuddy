@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.TableGenerator;
+import javax.validation.constraints.Pattern;
 
 import lombok.Data;
 
@@ -19,7 +20,7 @@ import lombok.Data;
 public class CityEntity {
 
     private @Id
-    @GeneratedValue(generator = "citySeq", strategy = GenerationType.TABLE)
+    @GeneratedValue(generator = "citySeq", strategy = GenerationType.IDENTITY)
     Long id;
     private String cityname;
     private String statecode;

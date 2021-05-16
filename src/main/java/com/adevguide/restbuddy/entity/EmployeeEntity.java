@@ -3,6 +3,7 @@ package com.adevguide.restbuddy.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 
@@ -12,6 +13,7 @@ import lombok.Data;
  */
 @Data
 @Entity
+@Table(name="employee")
 public class EmployeeEntity {
 
     private @Id
